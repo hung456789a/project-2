@@ -1,0 +1,7 @@
+services:
+  nginx:
+    container_name: "nginxtest"
+    hostname: "nginxtest"
+    build: .
+    ports:
+      - "80:80"
