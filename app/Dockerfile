@@ -1,7 +1,8 @@
 FROM maven:3.8.7-eclipse-temurin-17 AS builder
 WORKDIR /app
-COPY . .
+COPY pom.xml .
 RUN mvn package -DskipTests
+COPY src ./src
 
 FROM eclipse-temurin:17-jre
 WORKDIR /app
