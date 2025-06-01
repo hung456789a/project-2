@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: call-api-job
+spec:
+  schedule: "*/1 * * * *"          # Chạy mỗi 1 phút
+  startingDeadlineSeconds: 120     # Trễ tối đa 2 phút (120 giây)
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+          - name: java-api-caller
+            image: hung456a/call-api-job:latest
+            imagePullPolicy: Always
+            # Nếu cần thêm args hoặc env thì cấu hình thêm ở đây
+          restartPolicy: OnFailure
