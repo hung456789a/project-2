@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk AS builder
+FROM maven:3.8.7-eclipse-temurin-17 AS builder
 WORKDIR /app
 COPY . .
 RUN mvn package -DskipTests
