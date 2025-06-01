@@ -19,14 +19,10 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build JAR with Maven
-        run: |
-          cd app
-          mvn clean package -DskipTests
-
       - name: Build Docker image
         run: |
-          docker build -t hung456a/call-api-job:latest -f app/Dockerfile .
+          cd app
+          docker build -t hung456a/call-api-job:latest -f Dockerfile .
 
       - name: Push to Docker Hub
         uses: docker/login-action@v2
